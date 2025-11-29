@@ -85,6 +85,8 @@ void MD5Final(MD5_CTX *context,unsigned char digest[16]) {
 	MD5Update(context,bits,8);
 	MD5Encode(digest,context->state,16);
 }
+
+// u32 转 u8
 void MD5Encode(unsigned char *output,unsigned int *input,unsigned int len) {
 	unsigned int i = 0,j = 0;
 	while(j < len) {
@@ -96,6 +98,8 @@ void MD5Encode(unsigned char *output,unsigned int *input,unsigned int len) {
 		j+=4;
 	}
 }
+
+// u8 ( 4 个一组 ) 转 u32, len 必须是 4 的整数倍
 void MD5Decode(unsigned int *output,unsigned char *input,unsigned int len) {
 	unsigned int i = 0,j = 0;
 	while(j < len) {

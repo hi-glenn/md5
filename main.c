@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
 	}
 	
 	if(isfile) {
+		// 对文件做 md5
 		FILE *fp;
 		for(n=2; n<argc; n++) {
 			fp = fopen(argv[n], "rb");
@@ -54,6 +55,7 @@ int main(int argc, char *argv[]) {
 			printf("  %s\n", argv[n]);
 		}
 	} else {
+		// 对字符串做 md5
 		for(n=1; n<argc; n++) {
 			MD5Init(&md5);
 			MD5Update(&md5, argv[n], strlen(argv[n]));
